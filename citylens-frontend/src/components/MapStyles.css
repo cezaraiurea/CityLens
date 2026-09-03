@@ -1,0 +1,76 @@
+.layer-control {
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.icon-btn {
+    background: rgba(22, 13, 4, 0.85);
+    border: 1px solid rgba(212, 160, 60, 0.2);
+    color: var(--text-main);
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.icon-btn:hover {
+    border-color: rgba(212, 160, 60, 0.4);
+    color: var(--primary);
+}
+
+.icon-btn.active {
+    border-color: rgba(212, 160, 60, 0.5);
+    color: var(--primary);
+    background: rgba(212, 160, 60, 0.1);
+}
+
+.layer-menu {
+    position: absolute;
+    right: 100%;
+    top: 0;
+    margin-right: 10px;
+    background: rgba(22, 13, 4, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(212, 160, 60, 0.18);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    padding: 8px;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    white-space: nowrap;
+    z-index: 1002;
+}
+
+.layer-menu-header {
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--primary);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 4px 10px 8px;
+}
+
+.layer-menu button {
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    padding: 9px 12px;
+    cursor: pointer;
+    text-align: left;
+    border-radius: 10px;
+    transition: all 0.2s;
+    font-size: 0.88rem;
+    font-family: inherit;
+}
+
+.layer-menu button:hover {
+    background: rgba(212, 160, 60, 0.1);
+    color: var(--text-main);
+}

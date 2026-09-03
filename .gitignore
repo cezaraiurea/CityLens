@@ -1,0 +1,37 @@
+# Environment 
+.env
+*.env
+!.env.example
+
+# IDE
+.idea/
+*.iml
+
+# Java / Maven
+target/
+*.class
+*.jar
+
+# Node / React frontend
+node_modules/
+dist/
+build/
+
+# Python (ai-service)
+__pycache__/
+*.pyc
+venv/
+.venv/
+
+# Documente pdf
+*.pdf
+*.pptx
+*.docx
+
+# Diagrame folosite in documentatie
+diagrame/
+ 
+
+# OS
+.DS_Store
+Thumbs.db

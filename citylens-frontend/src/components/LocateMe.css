@@ -1,0 +1,18 @@
+.locate-me-btn {
+    background: rgba(22, 13, 4, 0.85);
+    border: 1px solid rgba(212, 160, 60, 0.2);
+    color: var(--primary);
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.locate-me-btn:hover {
+    border-color: rgba(212, 160, 60, 0.45);
+    background: rgba(212, 160, 60, 0.1);
+}

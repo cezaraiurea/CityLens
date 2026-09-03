@@ -1,0 +1,89 @@
+.discover-dest {
+    width: 100%;
+    max-width: 1400px;
+    margin: 40px auto 0;
+    padding: 0 20px;
+}
+
+.discover-dest-inner {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+    padding: 30px 34px;
+    border-radius: 22px;
+    background:
+        radial-gradient(ellipse 50% 130% at 100% 50%, rgba(212, 148, 58, 0.12) 0%, transparent 60%),
+        rgba(27, 18, 9, 0.9);
+    border: 1px solid rgba(244, 241, 236, 0.08);
+    overflow: hidden;
+}
+
+.discover-dest-kicker {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--primary);
+    margin-bottom: 12px;
+}
+
+.discover-dest-title {
+    font-size: clamp(1.4rem, 2.4vw, 2rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--text-main);
+    margin: 0 0 8px;
+}
+
+.discover-dest-cycle {
+    display: flex;
+    align-items: center;
+    font-size: 1.15rem;
+    font-weight: 500;
+    color: rgba(244, 241, 236, 0.45);
+}
+
+.discover-dest-city {
+    display: inline-block;
+    color: var(--primary);
+    font-weight: 700;
+    animation: cityFade 0.5s ease;
+}
+
+@keyframes cityFade {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.discover-dest-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    flex-shrink: 0;
+    background: linear-gradient(135deg, #d4943a, #b87a28);
+    border: none;
+    color: #1a0e04;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 700;
+    padding: 15px 30px;
+    border-radius: 14px;
+    cursor: pointer; 
+    transition: all 0.25s;
+}
+
+.discover-dest-btn:hover {
+    transform: translateY(-2px);
+    background: linear-gradient(135deg, #c4842a, #a86e22);
+}
+
+@media (max-width: 600px) {
+    .discover-dest-inner { flex-direction: column; align-items: flex-start; }
+    .discover-dest-btn { width: 100%; justify-content: center; }
+}

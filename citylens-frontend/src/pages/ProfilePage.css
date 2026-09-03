@@ -1,0 +1,308 @@
+.profile-page {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: transparent;
+    position: relative;
+    overflow-y: auto;
+    padding-bottom: 100px;
+}
+
+.profile-bg-glow {
+    position: fixed;
+    inset: 0;
+    background:
+        radial-gradient(ellipse at 20% 15%, rgba(200, 130, 25, 0.3) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 85%, rgba(150, 85, 15, 0.2) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.profile-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 58px;
+    background: rgba(18, 10, 3, 0.92);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(212, 160, 60, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    z-index: 1000;
+}
+
+.profile-back-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding: 6px;
+    border-radius: 8px;
+    transition: color 0.2s;
+}
+
+.profile-back-btn:hover {
+    color: var(--primary);
+}
+
+.profile-header-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text-main);
+}
+
+.profile-edit-btn {
+    background: transparent;
+    border: none;
+    color: var(--primary);
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: inherit;
+    transition: opacity 0.2s;
+}
+
+.profile-edit-btn:hover {
+    opacity: 0.8;
+}
+
+.profile-edit-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.profile-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 80px 20px 20px;
+    gap: 24px;
+    position: relative;
+    z-index: 1;
+}
+
+.profile-avatar-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.profile-avatar-wrapper {
+    position: relative;
+    width: 170px;
+    height: 170px;
+}
+
+.profile-avatar-img {
+    width: 170px;
+    height: 170px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2.5px solid rgba(212, 148, 58, 0.4);
+}
+
+.profile-avatar-placeholder {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    background: rgba(212, 148, 58, 0.1);
+    border: 2.5px solid rgba(212, 148, 58, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-camera-btn {
+    position: absolute;
+    bottom: 2px;
+    right: 2px;
+    width: 26px;
+    height: 26px;
+    background: var(--primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--bg-dark);
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.profile-camera-btn:hover {
+    background: var(--primary-hover);
+}
+
+.profile-uploading-text {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin: 0;
+}
+
+.profile-name {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text-main);
+    margin: 0;
+    letter-spacing: -0.4px;
+}
+
+.profile-email {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin: 0;
+}
+
+.profile-info-section {
+    width: 100%;
+    max-width: 420px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.profile-field {
+    background: rgba(22, 13, 4, 0.85);
+    border: 1px solid rgba(212, 160, 60, 0.15);
+    border-radius: 14px;
+    padding: 18px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.profile-field-label {
+    font-size: 10px;
+    font-weight: 700;
+    color: rgba(212, 148, 58, 0.6);
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+}
+
+.profile-field-value {
+    font-size: 15px;
+    color: var(--text-main);
+    font-weight: 500;
+}
+
+.profile-field-value.muted {
+    color: var(--text-muted); 
+}
+
+.profile-field-input {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(212, 160, 60, 0.3);
+    color: var(--text-main);
+    font-size: 14px;
+    font-family: inherit;
+    outline: none;
+    padding: 4px 0;
+    transition: border-color 0.2s;
+    width: 100%;
+}
+
+.profile-field-input:focus {
+    border-bottom-color: var(--primary);
+}
+
+.profile-field-input::placeholder {
+    color: var(--text-muted);
+    font-style: italic;
+}
+
+.profile-field-textarea {
+    resize: none;
+    line-height: 1.5;
+}
+
+.profile-cancel-btn {
+    width: 100%;
+    padding: 13px;
+    background: transparent;
+    border: 1px solid rgba(212, 160, 60, 0.25);
+    border-radius: 12px;
+    color: var(--text-muted);
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: inherit;
+    transition: all 0.2s;
+    margin-top: 6px;
+}
+
+.profile-cancel-btn:hover {
+    color: var(--text-main);
+    border-color: rgba(212, 160, 60, 0.4);
+}
+
+.profile-logout-btn {
+    width: 100%;
+    padding: 13px;
+    background: rgba(239, 68, 68, 0.08);
+    border: 1px solid rgba(239, 68, 68, 0.2);
+    border-radius: 12px;
+    color: #ef4444;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: inherit;
+    transition: all 0.2s;
+    margin-top: 4px;
+}
+
+.profile-logout-btn:hover {
+    background: rgba(239, 68, 68, 0.15);
+}
+
+.profile-loading {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-dark);
+}
+
+.profile-spinner {
+    width: 36px;
+    height: 36px;
+    border: 3px solid rgba(212, 160, 60, 0.15);
+    border-top-color: var(--primary);
+    border-radius: 50%;
+    animation: spin 0.75s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+@media (max-width: 768px) {
+    .profile-content {
+        padding: 75px 14px 20px;
+    }
+}
+
+.profile-admin-btn {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 10px;
+    background: rbga(212, 148, 58, 0.15);
+    border: 1px solid rgba(212, 148, 58, 0.4);
+    color: #e6b45f;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.profile-admin-btn:hover {
+    background: rgba(212, 148, 58, 0.25);
+}

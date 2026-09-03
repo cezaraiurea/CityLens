@@ -1,0 +1,140 @@
+.admin-page {
+  min-height: 100vh;
+  background: #12100c;
+  color: #f5efe4;
+  padding: 24px 16px 60px;
+}
+.admin-loading {
+  text-align: center;
+  padding: 80px 0;
+  color: #b8ab95;
+}
+
+.admin-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  max-width: 1200px;
+  margin: 0 auto 24px;
+}
+.admin-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #f5efe4;
+  padding: 8px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+.admin-back:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+.admin-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+}
+.admin-title-icon {
+  color: #d4943a;
+}
+.admin-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin: 0;
+}
+.admin-count {
+  color: #b8ab95;
+  font-size: 0.85rem;
+}
+
+.admin-error {
+  max-width: 1000px;
+  margin: 0 auto 16px;
+  background: rgba(220, 80, 80, 0.12);
+  border: 1px solid rgba(220, 80, 80, 0.3);
+  color: #ff9a9a;
+  padding: 10px 14px;
+  border-radius: 10px;
+}
+
+.admin-table-wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  overflow: hidden;
+}
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.admin-table th {
+  text-align: left;
+  padding: 14px 16px;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #9a8f7a;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+.admin-table td {
+  padding: 14px 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  font-size: 0.9rem;
+}
+.admin-table tr:last-child td {
+  border-bottom: none;
+}
+.row-inactive {
+  background: rgba(212, 148, 58, 0.05);
+}
+.cell-email {
+  font-weight: 500;
+}
+
+.role-badge {
+  font-size: 0.7rem;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-weight: 600;
+}
+.role-admin {
+  background: rgba(212, 148, 58, 0.2);
+  color: #e6b45f;
+}
+.role-user {
+  background: rgba(255, 255, 255, 0.08);
+  color: #c7bda8;
+}
+
+.last-login {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: #c7bda8;
+}
+.last-login.inactive {
+  color: #e8975a;
+  font-weight: 600;
+}
+
+.admin-del-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(220, 80, 80, 0.12);
+  border: 1px solid rgba(220, 80, 80, 0.25);
+  color: #ff8a8a;
+  width: 34px;
+  height: 34px;
+  border-radius: 9px;
+  cursor: pointer;
+}
+.admin-del-btn:hover {
+  background: rgba(220, 80, 80, 0.25);
+}

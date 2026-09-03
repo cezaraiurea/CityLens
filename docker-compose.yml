@@ -1,0 +1,103 @@
+services:
+  postgres:
+    image: postgis/postgis:16-3.4
+    container_name: citylens-postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    ports:
+      - "5433:5432"
+    volumes:
+      - ./docker/init-db:/docker-entrypoint-initdb.d
+      - citylens-pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  auth-service:
+    build: ./backend/auth-service
+    container_name: citylens-auth
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/citylens_auth_db
+      DB_PASSWORD: ${DB_PASSWORD}
+      USER_SERVICE_URL: http://user-service:8083
+      JWT_SECRET: ${JWT_SECRET}
+      MAIL_PASSWORD: ${MAIL_PASSWORD}
+    ports:
+      - "8082:8082"
+
+  user-service:
+    build: ./backend/user-service
+    container_name: citylens-user
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/citylens_user_db
+      DB_PASSWORD: ${DB_PASSWORD}
+      LOCATION_SERVICE_URL: http://location-service:8084
+    ports:
+      - "8083:8083"
+
+  location-service:
+    build: ./backend/location-service
+    container_name: citylens-location
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/citylens_location_db
+      DB_PASSWORD: ${DB_PASSWORD}
+      GOOGLE_PLACES_API_KEY: ${GOOGLE_PLACES_API_KEY}
+    ports:
+      - "8084:8084"
+
+  weather-service:
+    build: ./backend/weather-service
+    container_name: citylens-weather
+    environment:
+      OPENWEATHER_API_KEY: ${OPENWEATHER_API_KEY}
+    ports:
+      - "8085:8085"
+
+  gateway-service:
+    build: ./backend/gateway-service
+    container_name: citylens-gateway
+    depends_on:
+      - auth-service
+      - user-service
+      - location-service
+      - weather-service
+    environment:
+      AUTH_URI: http://auth-service:8082
+      USER_URI: http://user-service:8083
+      LOCATION_URI: http://location-service:8084
+      WEATHER_URI: http://weather-service:8085
+      AI_URI: http://ai-service:8000
+      JWT_SECRET: ${JWT_SECRET}
+    ports:
+      - "9000:9000"
+
+  ai-service:
+    build: ./citylens-ai-service
+    container_name: citylens-ai
+    env_file:
+      - ./citylens-ai-service/.env
+    ports:
+      - "8000:8000"
+
+  frontend:
+    build: ./citylens-frontend
+    container_name: citylens-frontend
+    depends_on:
+      - gateway-service
+    ports:
+      - "5173:80"
+
+volumes:
+  citylens-pgdata:
